@@ -10,7 +10,6 @@ public:
                 j++;
             }
             if(x>count){count=x;}
-            if(j==s.length()-1){break;}
         }
         return count;
     }
