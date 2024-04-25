@@ -1,7 +1,9 @@
 class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
-        /*for(int i=0;i<k;i++){
+        /*solution 1
+
+        for(int i=0;i<k;i++){
             nums.insert(nums.begin(),nums[nums.size()-i-1]);
         }
         nums.erase(nums.begin()+nums.size()-k,nums.begin()+nums.size());
@@ -12,6 +14,11 @@ public:
             }
             nums[0]=x;
         }*/
+
+
+
+        /*solution 2
+        
         int x=nums.size();
         if(x>k){
             for(int i=0;i<x-k;i++){
@@ -23,6 +30,19 @@ public:
                 nums.insert(nums.begin(),nums[nums.size()-i-1]);
             }
             nums.erase(nums.begin()+nums.size()-k,nums.begin()+nums.size());
-        }
+        }*/
+
+        /* solution 3
+
+        for(int i=0;i<k;i++){
+                nums.insert(nums.begin(),nums[nums.size()-i-1]);
+            }
+        nums.erase(nums.begin()+nums.size()-k,nums.begin()+nums.size());
+        */
+
+        k=k%nums.size();
+        reverse(nums.begin(),nums.end());
+        reverse(nums.begin(),nums.begin()+k);
+        reverse(nums.begin()+k,nums.end());
     }
 };
